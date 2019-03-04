@@ -1,0 +1,21 @@
+name: strace-analyzer
+base: core18 # the base snap is the execution environment for this snap
+version: git
+summary: Strace Analyzer
+description: |
+  Analyzes strace output
+
+grade: stable
+confinement: strict
+
+parts:
+  strace-analyzer:
+    plugin: rust
+    source: .
+
+apps:
+  strace-analyzer:
+    command: strace-analyzer
+    plugs:
+      - home
+      - removable-media
